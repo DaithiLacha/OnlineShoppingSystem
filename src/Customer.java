@@ -1,14 +1,16 @@
+import memberships.Membership;
+
 import java.util.Date;
 
 public class Customer {
-    private String membership;
+    private Membership membership;
     private String name;
     private String address;
     private double walletBalance;
     private Date dob;
 
 
-    public Customer(String membership, String name, String address, double walletBalance, Date dob) {
+    public Customer(Membership membership, String name, String address, double walletBalance, Date dob) {
         this.membership = membership;
         this.name = name;
         this.address = address;
@@ -16,11 +18,11 @@ public class Customer {
         this.dob = dob;
     }
 
-    public String getMembership() {
+    public Membership getMembership() {
         return membership;
     }
 
-    public void setMembership(String membership) {
+    public void setMembership(Membership membership) {
         this.membership = membership;
     }
 
@@ -68,7 +70,7 @@ public class Customer {
     @Override
     public String toString() {
         return "Customer{" +
-                "membership='" + membership + '\'' +
+                membership.toString() +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", walletBalance=" + walletBalance +

@@ -65,6 +65,10 @@ public class Stock {
         isSold = sold;
     }
 
+    public double calcNetPrice() {
+        return (price + (price * cat.calcVAT())+ (price + size.calcDeliveryCost()));
+    }
+
 
     @Override
     public String toString() {
@@ -73,6 +77,7 @@ public class Stock {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 size.toString() +
+                ", final cost=€" + String.format("%.2f", calcNetPrice()) +
                 ", isSold=" + isSold +
                 '}';
     }
