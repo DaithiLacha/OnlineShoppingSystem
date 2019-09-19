@@ -1,5 +1,5 @@
 public class Stock {
-    private String category;
+    private Category cat;
     private String name;
     private double price;
     private double deliveryCost;
@@ -7,22 +7,21 @@ public class Stock {
     private String size;
     private boolean isSold;
 
-    public Stock(String category, String name, double price, String size) {
-        this.category = category;
+    public Stock(Category cat, String name, double price, String size) {
+        this.cat = cat;
         this.name = name;
         this.price = price;
         this.size = size;
-        calcVat();
         calcDeliveryCost();
         isSold = false;
     }
 
-    public String getCategory() {
-        return category;
+    public Category getCat() {
+        return cat;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCat(Category cat) {
+        this.cat = cat;
     }
 
     public String getName() {
@@ -65,16 +64,6 @@ public class Stock {
         this.size = size;
     }
 
-    public void calcVat() {
-        if(getCategory().equalsIgnoreCase("Cleaning")) {
-            setVat(.135);
-        }else if(getCategory().equalsIgnoreCase("Stationary")) {
-            setVat(.09);
-        }else {
-            setVat(.23);
-        }
-    }
-
     public boolean isSold() {
         return isSold;
     }
@@ -96,11 +85,10 @@ public class Stock {
     @Override
     public String toString() {
         return "Stock{" +
-                "category='" + category + '\'' +
+                cat.toString() +
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 ", deliveryCost=" + deliveryCost +
-                ", vat=" + vat +
                 ", size='" + size + '\'' +
                 ", isSold=" + isSold +
                 '}';
