@@ -2,17 +2,15 @@ public class Stock {
     private Category cat;
     private String name;
     private double price;
-    private double deliveryCost;
     private double vat;
-    private String size;
+    private ItemSize size;
     private boolean isSold;
 
-    public Stock(Category cat, String name, double price, String size) {
+    public Stock(Category cat, String name, double price, ItemSize size) {
         this.cat = cat;
         this.name = name;
         this.price = price;
         this.size = size;
-        calcDeliveryCost();
         isSold = false;
     }
 
@@ -40,14 +38,6 @@ public class Stock {
         this.price = price;
     }
 
-    public double getDeliveryCost() {
-        return deliveryCost;
-    }
-
-    public void setDeliveryCost(double deliveryCost) {
-        this.deliveryCost = deliveryCost;
-    }
-
     public double getVat() {
         return vat;
     }
@@ -56,11 +46,11 @@ public class Stock {
         this.vat = vat;
     }
 
-    public String getSize() {
+    public ItemSize getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(ItemSize size) {
         this.size = size;
     }
 
@@ -72,15 +62,6 @@ public class Stock {
         isSold = sold;
     }
 
-    public void calcDeliveryCost() {
-        if(getSize().equalsIgnoreCase("Large")) {
-            setDeliveryCost(22.00);
-        }else if(getSize().equalsIgnoreCase("Medium")) {
-            setDeliveryCost(11.00);
-        }else if(getSize().equalsIgnoreCase("Small")) {
-            setDeliveryCost(5.50);
-        }
-    }
 
     @Override
     public String toString() {
@@ -88,8 +69,7 @@ public class Stock {
                 cat.toString() +
                 ", name='" + name + '\'' +
                 ", price=" + price +
-                ", deliveryCost=" + deliveryCost +
-                ", size='" + size + '\'' +
+                size.toString() +
                 ", isSold=" + isSold +
                 '}';
     }
