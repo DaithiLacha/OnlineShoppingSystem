@@ -1,3 +1,5 @@
+package sizes;
+
 public class SmallItem extends ItemSize {
     public double calcDeliveryCost() {
         return 5.50;

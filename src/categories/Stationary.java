@@ -1,3 +1,5 @@
+package categories;
+
 public class Stationary extends Category{
     public double calcVAT() {
         return .09;
@@ -5,6 +7,6 @@ public class Stationary extends Category{
 
     @Override
     public String toString() {
-        return "Category: Stationary\n VAT: " + calcVAT() + "%";
+        return "categories.Category: categories.Stationary\n VAT: " + calcVAT() + "%";
     }
 }

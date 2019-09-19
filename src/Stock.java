@@ -1,3 +1,6 @@
+import categories.Category;
+import sizes.ItemSize;
+
 public class Stock {
     private Category cat;
     private String name;

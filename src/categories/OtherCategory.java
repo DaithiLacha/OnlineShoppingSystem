@@ -1,3 +1,5 @@
+package categories;
+
 public class OtherCategory extends Category {
     public double calcVAT() {
         return .23;
@@ -5,6 +7,6 @@ public class OtherCategory extends Category {
 
     @Override
     public String toString() {
-        return "Category: Other\n VAT: " + calcVAT() + "%";
+        return "categories.Category: Other\n VAT: " + calcVAT() + "%";
     }
 }
