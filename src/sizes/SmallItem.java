@@ -7,6 +7,6 @@ public class SmallItem extends ItemSize {
 
     @Override
     public String toString() {
-        return "Size: Small\n Delivery Cost: €" + calcDeliveryCost();
+        return "Size: Small\nDelivery Cost: €" + calcDeliveryCost();
     }
 }

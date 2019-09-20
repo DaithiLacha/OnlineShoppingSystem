@@ -7,6 +7,6 @@ public class Cleaning extends Category{
 
     @Override
     public String toString() {
-        return "categories.Category: categories.Stationary\n VAT: " + calcVAT() + "%";
+        return "Category: Stationary\nVAT: " + (calcVAT() * 100) + "%";
     }
 }

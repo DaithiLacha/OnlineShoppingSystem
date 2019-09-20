@@ -9,15 +9,6 @@ public class Customer {
     private double walletBalance;
     private Date dob;
 
-
-    public Customer(Membership membership, String name, String address, double walletBalance, Date dob) {
-        this.membership = membership;
-        this.name = name;
-        this.address = address;
-        this.walletBalance = walletBalance;
-        this.dob = dob;
-    }
-
     public Membership getMembership() {
         return membership;
     }
@@ -62,7 +53,10 @@ public class Customer {
         walletBalance = (walletBalance + amount);
     }
 
-    public void subFromWallet(double amount) {
+    public void subFromWallet(double amount) throws Exception {
+        if (amount > walletBalance) {
+            throw new Exception("Insufficient funds");
+        }
         walletBalance = walletBalance - amount;
     }
 

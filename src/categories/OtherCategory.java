@@ -7,6 +7,6 @@ public class OtherCategory extends Category {
 
     @Override
     public String toString() {
-        return "categories.Category: Other\n VAT: " + calcVAT() + "%";
+        return "Category: Other\nVAT: " + (calcVAT() * 100) + "%";
     }
 }

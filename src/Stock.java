@@ -5,17 +5,8 @@ public class Stock {
     private Category cat;
     private String name;
     private double price;
-    private double vat;
     private ItemSize size;
     private boolean isSold;
-
-    public Stock(Category cat, String name, double price, ItemSize size) {
-        this.cat = cat;
-        this.name = name;
-        this.price = price;
-        this.size = size;
-        isSold = false;
-    }
 
     public Category getCat() {
         return cat;
@@ -41,14 +32,6 @@ public class Stock {
         this.price = price;
     }
 
-    public double getVat() {
-        return vat;
-    }
-
-    public void setVat(double vat) {
-        this.vat = vat;
-    }
-
     public ItemSize getSize() {
         return size;
     }
@@ -66,19 +49,17 @@ public class Stock {
     }
 
     public double calcNetPrice() {
-        return (price + (price * cat.calcVAT())+ (price + size.calcDeliveryCost()));
+        return (price + (price * cat.calcVAT()) + (size.calcDeliveryCost()));
     }
 
 
     @Override
     public String toString() {
-        return "Stock{" +
-                cat.toString() +
-                ", name='" + name + '\'' +
-                ", price=" + price +
-                size.toString() +
-                ", final cost=€" + String.format("%.2f", calcNetPrice()) +
-                ", isSold=" + isSold +
-                '}';
+        return cat.toString() +
+                "Name: " + name + "\n" +
+                "Price: " + price + "\n" +
+                size.toString() + "\n" +
+                "Final cost: €" + String.format("%.2f", calcNetPrice()) + "\n" +
+                "Is Sold: " + isSold;
     }
 }

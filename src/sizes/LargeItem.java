@@ -7,6 +7,6 @@ public class LargeItem extends ItemSize {
 
     @Override
     public String toString() {
-        return "Size: Large\n Delivery Cost: €" + calcDeliveryCost();
+        return "Size: Large\nDelivery Cost: €" + calcDeliveryCost();
     }
 }

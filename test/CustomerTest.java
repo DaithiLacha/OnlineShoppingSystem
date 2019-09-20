@@ -1,57 +1,97 @@
+import memberships.Premium;
+import memberships.Standard;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CustomerTest {
+    private Customer cust = new Customer();
 
-    @Test
-    void getMembership() {
+    @BeforeEach
+    void beforeAll() {
+        cust.setName("David Davidson");
+        cust.setAddress("Around");
+        cust.setDob(new GregorianCalendar(01, 01, 1960).getTime());
+        cust.setMembership(new Premium());
     }
 
     @Test
-    void setMembership() {
+    void testMembership() {
+        assertEquals(2, cust.getMembership().calcTimeForDelivery());
     }
 
     @Test
-    void getName() {
+    void testSetMembership() {
+        cust.setMembership(new Standard());
+        assertEquals(7, cust.getMembership().calcTimeForDelivery());
     }
 
     @Test
-    void setName() {
+    void testGetName() {
+        assertEquals("David Davidson", cust.getName());
     }
 
     @Test
-    void getAddress() {
+    void testSetName() {
+        cust.setName("Bob");
+        assertEquals("Bob", cust.getName());
     }
 
     @Test
-    void setAddress() {
+    void testGetAddress() {
+        assertEquals("Around", cust.getAddress());
     }
 
     @Test
-    void getWalletBalance() {
+    void testSetAddress() {
+        cust.setAddress("Not here");
+        assertEquals("Not here", cust.getAddress());
     }
 
     @Test
-    void setWalletBalance() {
+    void testGetWalletBalance() {
+        assertEquals(0.00, cust.getWalletBalance());
     }
 
     @Test
-    void getDob() {
+    void testSetWalletBalance() {
+        cust.setWalletBalance(50.00);
+        assertEquals(50.00, cust.getWalletBalance());
     }
 
     @Test
-    void setDob() {
+    void testGetDob() {
+        Date testDate = new GregorianCalendar(01, 01, 1960).getTime();
+        assertTrue(testDate.equals(cust.getDob()));
     }
 
     @Test
-    void addToWallet() {
+    void testSetDob() {
+        Date testDate = new GregorianCalendar(01, 01, 1990).getTime();
+        cust.setDob(testDate);
+        assertTrue(testDate.equals(cust.getDob()));
     }
 
     @Test
-    void subFromWallet() {
+    void testAddToWallet() {
+        cust.addToWallet(20);
+        assertEquals(20, cust.getWalletBalance());
     }
 
     @Test
-    void testToString() {
+    void testSubFromWallet() throws Exception{
+        cust.addToWallet(10);
+        cust.subFromWallet(5);
+        assertEquals(5, cust.getWalletBalance());
+    }
+
+    @Test
+    void testSubFromWallet2() throws Exception {
+        assertThrows(Exception.class, () -> cust.subFromWallet(20));
     }
 }

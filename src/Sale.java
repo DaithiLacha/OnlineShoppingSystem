@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.Date;
 
 public class Sale {
@@ -5,12 +6,15 @@ public class Sale {
     private long saleNumber;
     private Date dateOfSale;
     private Stock stockItem;
+//    private Date dateofDelivery;
 
-    public Sale(Customer customer, double totalCost, long saleNumber, Stock stockItem) {
+    public Sale(Customer customer, long saleNumber, Stock stockItem) {
         this.customer = customer;
         this.saleNumber = saleNumber;
         dateOfSale = new Date();
         this.stockItem = stockItem;
+        stockItem.setSold(true);
+//        dateofDelivery = dateOfSale.;
     }
 
     public Customer getCustomer() {
