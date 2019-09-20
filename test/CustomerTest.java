@@ -16,7 +16,7 @@ class CustomerTest {
     void beforeAll() {
         cust.setName("David Davidson");
         cust.setAddress("Around");
-        cust.setDob(new GregorianCalendar(01, 01, 1960).getTime());
+        cust.setDob(new GregorianCalendar(1960, 01, 01).getTime());
         cust.setMembership(new Premium());
     }
 
@@ -66,13 +66,13 @@ class CustomerTest {
 
     @Test
     void testGetDob() {
-        Date testDate = new GregorianCalendar(01, 01, 1960).getTime();
+        Date testDate = new GregorianCalendar(1960, 01, 01).getTime();
         assertTrue(testDate.equals(cust.getDob()));
     }
 
     @Test
     void testSetDob() {
-        Date testDate = new GregorianCalendar(01, 01, 1990).getTime();
+        Date testDate = new GregorianCalendar(1990, 01, 01).getTime();
         cust.setDob(testDate);
         assertTrue(testDate.equals(cust.getDob()));
     }
